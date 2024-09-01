@@ -1,11 +1,29 @@
 # SaiIntra - SaiHackFest'24 (Frame Interpolation and Video Generation Project)
 
-This project implements a pipeline for frame interpolation and video generation from a sequence of images. The pipeline includes frame interpolation, image cropping, and video creation. It is designed to handle large sequences of images, such as satellite images captured at regular intervals.
+## Project Overview
 
-### Project Structure
+This project develops a system that automatically generates videos using frame interpolation techniques from a Web Map Service (WMS) that provides satellite imagery at regular intervals (e.g., every 30 minutes). The AI-based video generator interpolates frames (e.g., at every minute between 30-minute intervals) to provide smooth visualization of moving objects, such as clouds, which can deform or disappear between frames. The generated video is then displayed on an interactive web-based map using open-source libraries such as OpenLayers or Leaflet.
+
+### Challenge
+
+The main challenges include:
+- Frame interpolation of deformable objects like clouds, which can appear, disappear, or change shape between frames.
+- Overlaying the interpolated video on a web-based map visualization using open-source libraries (OpenLayers or Leaflet) instead of commercial libraries like Mapbox.
+- Ensuring compatibility with OGC WMS services.
+
+### Desired Outcome
+
+- **Compatibility**: The tool should be compatible with OGC WMS services.
+- **Visualization**: Demonstrate video visualization overlay on an OpenLayers (> version 6) web map.
+- **Bonus**: Utilize on-device GPUs/NPUs available in modern desktop/mobile devices (not mandatory).
+  
+## Project Structure
+The project includes the following components:
+1. **Frame Interpolation**: The system uses frame interpolation techniques to generate additional frames between provided satellite images.
+2. **Video Generation**: A video is created from the interpolated frames.
+3. **Web-Based Map Visualization**: The video is overlaid on an interactive web-based map using OpenLayers or Leaflet.
 
 The project consists of several Python scripts:
-
 1. **`main.py`**: The main script to run the entire pipeline. It handles frame interpolation, image cropping, and video generation.
 2. **`combinedFrameInterpolated.py`**: Contains the function to combine original frames with interpolated frames and rename them sequentially.
 3. **`cropFolderImgs.py`**: Handles the cropping of images based on specified coordinates.
@@ -31,15 +49,12 @@ pip install pillow numpy opencv-python
 ```
 
 ## Usage
-1. Run the Main Script
+1. **Run the Main Script**
 
 Execute **'main.py'** to start the pipeline. It will prompt you for the following inputs:
 - **Original frames directory:** Path to the directory containing the original frames.
 - **Directory to save files:** Path to the base directory where intermediate and final results will be saved.
 - **Number of interpolation passes:** Number of times the interpolation process should be applied. Each pass doubles the number of interpolated frames.
-
-
-2. Process Images
 
 The script will:
 - Perform frame interpolation based on the specified number of passes.
@@ -50,7 +65,7 @@ During execution, you will also be asked to input:
 - **Frame rate:** Frame rate for the output video.
 
 
-3. Output
+2. **Output**
 
 The script will output:
 - **Interpolated frames:** Saved in the base directory with the prefix **'interpolated_{pass}'**.
@@ -68,8 +83,8 @@ python main.py
 Provide the necessary inputs when prompted, and the pipeline will process the images and generate the video accordingly.
 
 ## Notes
-Ensure that the image filenames follow the pattern **'frame_XXX.jpg'** where **'XXX'** is a zero-padded number.
-The cropping coordinates are set to **'[0.0, 110, 1540.0, 1545.0]'**. Adjust these coordinates as needed for your specific images.
+- Ensure that the image filenames follow the pattern **'frame_XXX.jpg'** where **'XXX'** is a zero-padded number.
+- The cropping coordinates are set to **'[0.0, 110, 1540.0, 1545.0]'**. Adjust these coordinates as needed for your specific images.
 
 ## License
 This project is licensed under the MIT License. See the license file for details.
