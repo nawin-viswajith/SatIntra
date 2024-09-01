@@ -12,6 +12,10 @@ The project consists of several Python scripts:
 4. **`interpolation.py`**: Contains functions for interpolating frames between two consecutive images.
 5. **`videoGen.py`**: Generates a video from a sequence of images.
 
+## Dataset
+
+The dataset used for testing was collected from the [MOSDAC](https://www.mosdac.gov.in/) website. The dataset consists of satellite images taken at regular intervals, which are used for the frame interpolation and video generation processes.
+
 ## Prerequisites
 
 - Python 3.x
@@ -43,16 +47,16 @@ The script will:
 - Crop the images based on the specified coordinates.
 - Generate a video from the cropped images.
 During execution, you will also be asked to input:
-- Frame rate: Frame rate for the output video.
+- **Frame rate:** Frame rate for the output video.
 
 
 3. Output
 
 The script will output:
-- Interpolated frames: Saved in the base directory with the prefix **'interpolated_{pass}'**.
-- Combined frames: Saved in the base directory with the prefix **'combined_{pass}'**.
-- Cropped images: Saved in the base directory under the folder **'cropped'**.
-- Video file: Saved as **'output.mp4'** in the base directory.
+- **Interpolated frames:** Saved in the base directory with the prefix **'interpolated_{pass}'**.
+- **Combined frames:** Saved in the base directory with the prefix **'combined_{pass}'**.
+- **Cropped images:** Saved in the base directory under the folder **'cropped'**.
+- **Video file:** Saved as **'output.mp4'** in the base directory.
 
 
 ## Example
@@ -64,10 +68,12 @@ python main.py
 Provide the necessary inputs when prompted, and the pipeline will process the images and generate the video accordingly.
 
 ## Notes
-Ensure that the image filenames follow the pattern **'frame_XXX.jpg'** where 'XXX' is a zero-padded number.
-The cropping coordinates are set to [0.0, 110, 1540.0, 1545.0]. Adjust these coordinates as needed for your specific images.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+Ensure that the image filenames follow the pattern **'frame_XXX.jpg'** where **'XXX'** is a zero-padded number.
+The cropping coordinates are set to **'[0.0, 110, 1540.0, 1545.0]'**. Adjust these coordinates as needed for your specific images.
 
-Contributing
+## License
+This project is licensed under the MIT License. See the license file for details.
+
+## Contributing
 Feel free to fork the repository and submit pull requests. Issues and feature requests can be reported in the GitHub issues section.
+For any questions or issues, please contact nawinviswajith@gmail.com
