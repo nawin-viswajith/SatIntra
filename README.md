@@ -1,4 +1,4 @@
-# SaiIntra - SaiHackFest'24 (Frame Interpolation and Video Generation Project)
+# SatIntra - SaiHackFest'24 (Frame Interpolation and Video Generation Project)
 
 ## Project Overview
 
